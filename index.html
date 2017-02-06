@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min portfolio 3</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400i|Roboto+Slab:700" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery.scrollintoview.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            &#9776;
+        </nav>
+        <div class="face">
+            <div>
+                <h1>krokben</h1>
+                <p>front end developer</p>
+                <span class="down-arrow" id="downBtn"></span>
+            </div>
+        </div>
+        <div id="aboutMe" class="about-me">
+            <div class="blurb-container">
+                <div class="circle"></div>
+                <div class="blurb">
+                    <h2>tommy svensson</h2>
+                    <p>Knackar kod och kommer med kreativa lösningar. Gillar fin och strukturerad kod, ny teknik och
+                    minimalistisk design. Har spenderat några år i Berlin och Tokyo. Studerar frontend på KYH i Stockholm.</p>
+                    <hr />
+                </div>
+            </div>
+            <p class="code">init: function() {
+            this.cacheDom();
+            this.bindEvents();
+            this.render();
+        },
+        cacheDom: function() {
+            this.images = document.getElementById('images');
+            this.wordbox = document.getElementById('wordbox');
+            this.wrong = document.getElementById('wrong');
+            this.resetButton = document.getElementById('resetButton');
+            this.counter = 0;
+        },
+        bindEvents: function() {
+            this.resetButton.addEventListener('click', this.resetState);
+            document.onkeydown = this.guess;
+        },
+        render: function() {
+            var words = {words: this.words};
+            var word = this.words[Math.floor(Math.random() * this.words.length)];
+            for (var i = 0; i &lt; this.word.length; i++) {
+                this.wordbox.innerHTML += '&lt;div&gt;&lt;span class=&quot;' + this.word.charAt(i) + '&quot; style=&quot;opacity: 0&quot;&gt;' + this.word.charAt(i) + '&lt;/span&gt;&lt;/div&gt;';
+            }
+        },
+        guess: function(event) {
+            if (counter &lt; 7) {
+                var key_press = String.fromCharCode(event.keyCode);
+                var key_code = event.keyCode;
+                var letters = document.querySelectorAll('.' + key_press);
+
+                if (letters[0] &amp;&amp; (letters[0].style.opacity !== '1')) {
+                    for (var i = 0; i &lt; letters.length; i++) {
+                        letters[i].style.opacity = '1';
+                    }
+                } else if (letters[0] === undefined) {
+                        counter++;
+                        this.images.innerHTML = '&lt;img src=&quot;' + counter + '.png&quot; /&gt;';
+                        this.wrong.innerHTML += key_press;
+                }
+            } else {
+                this.images.innerHTML = 'Du &auml;r d&ouml;d och den.&lt;br /&gt;';
+                this.resetButton.style.display = 'inline';
+            }
+        },
+        resetState: function() {
+            this.counter = 0;
+            this.wordbox.innerHTML = '';
+            this.wrong.innerHTML = '';
+            this.images.innerHTML = '';
+            this.resetButton.style.display = 'none';
+        }</p>
+            <span class="up-arrow" id="upBtn"></span>
+        </div>
+        <div class="skills">
+            Icon made by <a href="freepik.com">Freepik</a> from <a href="flaticon.com">flaticon.com</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

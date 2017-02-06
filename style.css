@@ -1,0 +1,185 @@
+body {
+    background: #2ecc71;
+    /*color: #13562f;*/
+    color: #000;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    height: 100%;
+    margin: 0;
+    /*overflow: hidden;*/
+}
+
+.container {
+    height: 2000px;
+}
+
+nav {
+    box-sizing: border-box;
+    color: #27ae60;
+    font-size: 4em;
+    height: 20vh;
+    line-height: 1em;
+    padding-right: 23px;
+    padding-top: 15px;
+    text-align: right;
+}
+
+.face {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    height: 77vh;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em;
+    line-height: 1em;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2.5em;
+    line-height: 1em;
+    margin: 0;
+}
+
+.face div {
+    margin-bottom: 25vh;
+}
+
+.face p {
+    font-size: 2em;
+    margin: 0;
+}
+
+.down-arrow {
+    animation: down-arrow-move 2.5s ease 0s infinite;
+    background: #27ae60;
+    bottom: 2px;
+    clip-path: polygon(20% 0%, 20% 60%, 0% 60%, 50% 100%, 100% 60%, 80% 60%, 80% 0%);
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    right: 20%;
+    width: 50px;
+}
+
+.up-arrow {
+    animation: up-arrow-move 2.5s ease 0s infinite;
+    background: #2ecc71;
+    bottom: 2px;
+    clip-path: polygon(50% 0%, 0% 40%, 20% 40%, 20% 100%, 80% 100%, 80% 40%, 100% 40%);
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    right: 20%;
+    width: 50px;
+}
+
+.about-me {
+    background: #27ae60;
+    box-sizing: border-box;
+    height: 62vw;
+    /*height: 100vh;*/
+    padding: 17vw;
+    position: relative;
+    width: 100%;
+}
+
+.blurb-container {
+    display: flex;
+    flex: 2;
+    left: 8vw;
+    max-width: 80%;
+    position: absolute;
+    top: 8vw;
+    z-index: 1;
+}
+
+.circle {
+    background-attachment: fixed;
+    background-image: url('me.jpg');
+    background-position: top left;
+    background-size: contain;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 20vw;
+    min-width: 20vw;
+}
+
+.code {
+    color: #2ecc71;
+    font-size: 1.1vw;
+    max-width: 66%;
+    transform: rotate(20deg);
+}
+
+.blurb {
+    align-self: center;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.blurb p {
+    background: #27ae60;
+    color: #000;
+    font-family: 'Roboto', serif;
+    line-height: 1.2em;
+    margin: 0;
+}
+
+.blurb hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid #fff;
+}
+
+.skills {
+    background: #27ae60;
+    height: 52vw;
+    margin: 1%;
+}
+
+@media screen and (min-width: 560px) {
+    .about-me {
+        clip-path: polygon(0% 100%, 0% 0%, 90% 0%, 90% 50%, 84% 70%, 84% 100%,
+            85% 100%, 85% 70.5%, 91% 50.5%, 91% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@media screen and (min-width: 1030px) {
+    .about-me {
+        clip-path: polygon(0% 0%, 63% 0%, 63% 30%, 69% 50%, 69% 100%, 70% 100%,
+        70% 49.5%, 64% 29.5%, 64% 0%, 100% 0%, 100% 100%, 0% 100%);
+        height: 100vh;
+    }
+
+    .blurb-container {max-width: 55%;};
+}
+
+@keyframes down-arrow-move {
+    0%   {bottom: 2px;}
+    50% {bottom: 18px;}
+    100% {bottom: 2px;}
+}
+
+@keyframes up-arrow-move {
+    0%   {bottom: 6px;}
+    50% {bottom: 22px;}
+    100% {bottom: 6px;}
+}
+
+/*.polygon {
+    background: #F74169;
+    margin: 0 auto;
+    height: 300px;
+    width: 400px;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%, 100% 0%, 60% 0%, 64% 0%,
+        60% 30%, 64% 30%, 66% 50%, 70% 50%, 66% 100%, 70% 100%);
+}*/
+
+/*clip-path: polygon(0% 0%, 60% 0%, 60% 30%, 66% 50%, 66% 100%, 70% 100%,
+    70% 50%, 64% 30%, 64% 0%, 100% 0%, 100% 100%, 0% 100%);*/
