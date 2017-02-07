@@ -43,7 +43,7 @@ h1 {
 h2 {
     font-size: 2.5em;
     line-height: 1em;
-    margin: 0;
+    margin: 0 0 2px 0;
 }
 
 .face div {
@@ -134,14 +134,96 @@ h2 {
 .blurb hr {
     border: 0;
     height: 0;
-    border-top: 1px solid #fff;
+    border-top: 2px solid #fff;
 }
 
 .skills {
     background: #27ae60;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Share Tech Mono';
     height: 52vw;
+    justify-content: center;
     margin: 1%;
 }
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    height: 40vw;
+    margin: 0 auto;
+    width: 60vw;
+}
+
+.skills-container .row, .skills-container .row-bottom {
+    display: flex;
+    flex: 1;
+}
+
+.skills-container .row .skills-area {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 0 15px 0 15px;
+}
+
+.skills-container .row-bottom .skills-area {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 0 15px 0 15px;
+}
+
+.skills-container .row .skills-area div, .skills-container .row-bottom .skills-area div {
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.skills-container .row .skills-area div:hover, .skills-container .row-bottom .skills-area div:hover {
+    color: #000;
+}
+
+.skills-container .row-big {
+    box-sizing: border-box;
+    display: flex;
+    flex: 4;
+    padding: 30px 0 0px 0;
+}
+
+.skills-container .row-big-bottom {
+    box-sizing: border-box;
+    display: flex;
+    flex: 4;
+    padding: 15px 0 30px 0;
+}
+
+.skills-container .row-big div, .skills-container .row-big-bottom div {
+    /*align-items: stretch;*/
+    display: flex;
+    flex: 1;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.skills-container .row-big span, .skills-container .row-big-bottom span {
+    border: 1px solid #27ae60;
+    width: 9.8%;
+}
+
+.html {background: #f1c40f;         transition: all 400ms ease-in-out;}
+.css {background: #9b59b6;          transition: all 400ms ease-in-out;}
+.javascript {background: #f62459;   transition: all 400ms ease-in-out;}
+.jquery {background: #19B5fe;       transition: all 400ms ease-in-out;}
+.php {background: #2C3e50;          transition: all 400ms ease-in-out;}
+.react {background: #f22613;        transition: all 400ms ease-in-out;}
+.bootstrap {background: #87D37C;    transition: all 400ms ease-in-out;}
+.wordpress {background: #446cb3;    transition: all 400ms ease-in-out;}
+.sass {background: #f89406;         transition: all 400ms ease-in-out;}
+.scrum {background: #D2D7D3;        transition: all 400ms ease-in-out;}
 
 @media screen and (min-width: 560px) {
     .about-me {
