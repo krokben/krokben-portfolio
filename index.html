@@ -4,6 +4,7 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min portfolio 3</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400i|Roboto+Slab:700|Share+Tech+Mono" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css" />
     <script src="jquery-3.1.1.min.js"></script>
     <script src="jquery.scrollintoview.min.js"></script>
@@ -13,13 +14,13 @@
         <nav>
             &#9776;
         </nav>
-        <div class="face">
+        <main class="face">
             <div>
                 <h1>krokben</h1>
                 <p>front end developer</p>
                 <span class="down-arrow" id="downBtn"></span>
             </div>
-        </div>
+        </main>
         <div id="aboutMe" class="about-me">
             <div class="blurb-container">
                 <div class="circle"></div>
@@ -80,9 +81,10 @@
             this.images.innerHTML = '';
             this.resetButton.style.display = 'none';
         }</p>
-            <span class="up-arrow" id="upBtn"></span>
+            <div class="keep-scrolling">psst! <span>keep scrolling...</span></div>
         </div>
         <div class="skills">
+            <h2>my proficiency in...</h2>
             <div class="skills-container">
                 <div class="row">
                     <div class="skills-area"><div id="html" class="html">html</div></div>
@@ -127,6 +129,11 @@
                     <div class="skills-area"><div id="scrum" class="scrum">scrum</div></div>
                 </div>
             </div>
+        </div>
+        <div class="portfolio">
+            <div class="portfolio-small">1</div>
+            <div class="portfolio-small">2</div>
+            <div class="portfolio-large">3</div>
         </div>
     </div>
 

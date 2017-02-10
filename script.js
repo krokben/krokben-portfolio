@@ -10,7 +10,7 @@ window.onscroll = function() {
 };
 
 const downBtn = document.querySelector('#downBtn');
-const upBtn = document.querySelector('#upBtn');
+// const upBtn = document.querySelector('#upBtn');
 
 downBtn.addEventListener('click', function() {
 	$('#aboutMe').scrollintoview({
@@ -19,12 +19,12 @@ downBtn.addEventListener('click', function() {
 	});
 });
 
-upBtn.addEventListener('click', function() {
-	$('body').scrollintoview({
-		duration: 1000,
-		direction: 'vertical'
-	});
-});
+// upBtn.addEventListener('click', function() {
+// 	$('body').scrollintoview({
+// 		duration: 1000,
+// 		direction: 'vertical'
+// 	});
+// });
 
 // Skills
 const skillsArea = document.querySelectorAll('.skills-area');
@@ -63,7 +63,7 @@ function showSkills(bar, area) {
 
 	array.forEach((child, idx) => {
 		if (idx >= i) {
-			child.className = "";
+			child.className = '';
 		} else {
 			child.className = area;
 		}
