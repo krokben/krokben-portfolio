@@ -270,18 +270,31 @@ h2 {
 
 .portfolio-small {
     align-self: center;
-    background-image: url('images/tilegame.png');
     background-size: contain;
     border: 1px solid #27ae60;
     box-sizing: border-box;
     box-shadow: 0px 4px 14px 0px rgba(24,112,61,0.75);
-    height: 14vw;
+    height: 60%;
     opacity: 0.9;
-    width: 20vw;
+    width: 36%;
+}
+
+.leftmost.gone {
+    margin-left: -40px;
+    opacity: 0;
+    transition: all 0.4s linear;
+}
+
+.rightmost.large {
+    box-shadow: 0px 10px 18px 3px rgba(24,112,61,0.2);
+    height: 100%;
+    left: 20%;
+    margin-right: 200px;
+    transition: all 0.4s linear;
+    width: 60%;
 }
 
 .portfolio-large {
-    background-image: url('images/gladageten.png');
     background-size: contain;
     border: 1px solid #27ae60;
     box-sizing: border-box;
@@ -290,6 +303,25 @@ h2 {
     left: 20%;
     position: absolute;
     width: 60%;
+    z-index: 1;
+}
+
+.portfolio-large.small {
+    align-self: center;
+    box-shadow: 0px 4px 14px 0px rgba(24,112,61,0.75);
+    height: 60%;
+    left: 0;
+    opacity: 0.9;
+    transition: all 0.4s linear;
+    width: 36%;
+}
+
+.pastwork1 {
+    background-image: url('images/tilegame.png');
+}
+
+.pastwork2 {
+    background-image: url('images/gladageten.png');
 }
 
 @media screen and (min-width: 560px) {

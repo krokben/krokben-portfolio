@@ -69,3 +69,33 @@ function showSkills(bar, area) {
 		}
 	});
 }
+
+// Portfolio
+let portfolioLarge = document.querySelector('.portfolio-large');
+let portfolioSmallLeft = document.querySelector('.leftmost');
+let portfolioSmallRight = document.querySelector('.rightmost');
+portfolioSmallLeft.addEventListener('click', rotateLeft);
+
+function cacheAndBind() {
+	portfolioLarge = document.querySelector('.portfolio-large');
+	portfolioSmallLeft = document.querySelector('.leftmost');
+	portfolioSmallRight = document.querySelector('.rightmost');
+	portfolioSmallLeft.addEventListener('click', rotateLeft);
+}
+
+function rotateLeft() {
+	const clsList = this.classList;
+	portfolioLarge.classList.add('small');
+	portfolioSmallLeft.classList.add('gone');
+	portfolioSmallRight.classList.add('large');
+	setTimeout(function() {
+		if (clsList.contains('pastwork1')) {
+			portfolioSmallLeft.className = 'portfolio-small leftmost pastwork2';
+			portfolioLarge.className = 'portfolio-small rightmost pastwork1';
+			portfolioSmallRight.className = 'portfolio-large pastwork1';
+		} else {
+			console.log('error');
+		}
+		cacheAndBind();
+	}, 400);
+}
