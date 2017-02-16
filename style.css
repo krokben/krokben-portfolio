@@ -46,6 +46,11 @@ h2 {
     margin: 0 0 2px 0;
 }
 
+h3 {
+    color: #fff;
+    text-align: center;
+}
+
 .fa {
 /* font awesome icons */
     color: #fff;
@@ -264,6 +269,7 @@ h2 {
     justify-content: space-between;
     margin: auto;
     margin-top: 4vw;
+    margin-bottom: 2.5vw;
     position: relative;
     width: 58vw;
 }
@@ -279,19 +285,21 @@ h2 {
     width: 36%;
 }
 
-.leftmost.gone {
+#leftmost.gone, #rightmost.gone {
     margin-left: -40px;
     opacity: 0;
     transition: all 0.4s linear;
 }
 
-.rightmost.large {
+#rightmost.large, #leftmost.large {
     box-shadow: 0px 10px 18px 3px rgba(24,112,61,0.2);
     height: 100%;
     left: 20%;
     margin-right: 200px;
+    opacity: 1;
     transition: all 0.4s linear;
     width: 60%;
+    z-index: 2;
 }
 
 .portfolio-large {
@@ -316,12 +324,26 @@ h2 {
     width: 36%;
 }
 
+.portfolio-large.small2 {
+    align-self: center;
+    box-shadow: 0px 4px 14px 0px rgba(24,112,61,0.75);
+    height: 60%;
+    left: 64%;
+    opacity: 0.9;
+    transition: all 0.4s linear;
+    width: 36%;
+}
+
 .pastwork1 {
     background-image: url('images/tilegame.png');
 }
 
 .pastwork2 {
     background-image: url('images/gladageten.png');
+}
+
+.pastwork3 {
+    background-image: url('images/hangman.png');
 }
 
 @media screen and (min-width: 560px) {

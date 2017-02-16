@@ -72,30 +72,82 @@ function showSkills(bar, area) {
 
 // Portfolio
 let portfolioLarge = document.querySelector('.portfolio-large');
-let portfolioSmallLeft = document.querySelector('.leftmost');
-let portfolioSmallRight = document.querySelector('.rightmost');
-portfolioSmallLeft.addEventListener('click', rotateLeft);
+let portfolioSmallLeft = document.getElementById('leftmost');
+let portfolioSmallRight = document.getElementById('rightmost');
+
+cacheAndBind();
 
 function cacheAndBind() {
 	portfolioLarge = document.querySelector('.portfolio-large');
-	portfolioSmallLeft = document.querySelector('.leftmost');
-	portfolioSmallRight = document.querySelector('.rightmost');
+	portfolioSmallLeft = document.getElementById('leftmost');
+	portfolioSmallRight = document.getElementById('rightmost');
 	portfolioSmallLeft.addEventListener('click', rotateLeft);
+	portfolioSmallRight.addEventListener('click', rotateRight);
 }
 
 function rotateLeft() {
+	portfolioSmallLeft.removeEventListener('click', rotateLeft);
+	portfolioSmallRight.removeEventListener('click', rotateRight);
+	const that = this;
 	const clsList = this.classList;
+	const thisPastWork = Number(clsList[clsList.length - 1].match(/\d+/)[0]); // get the number of pastwork class of clicked element
 	portfolioLarge.classList.add('small');
 	portfolioSmallLeft.classList.add('gone');
 	portfolioSmallRight.classList.add('large');
 	setTimeout(function() {
-		if (clsList.contains('pastwork1')) {
-			portfolioSmallLeft.className = 'portfolio-small leftmost pastwork2';
-			portfolioLarge.className = 'portfolio-small rightmost pastwork1';
-			portfolioSmallRight.className = 'portfolio-large pastwork1';
+		// This becomes itself with img index -1
+		if (thisPastWork !== 1) {
+			that.className = 'portfolio-small pastwork' + (thisPastWork - 1);
+			that.id = 'leftmost';
 		} else {
-			console.log('error');
+			that.className = 'portfolio-small pastwork' + (thisPastWork + 2);
+			that.id = 'leftmost';
 		}
+		// The next element becomes the rightmost with this img index
+		portfolioLarge.className = 'portfolio-small pastwork' + thisPastWork;
+		portfolioLarge.id = 'rightmost';
+		// The next next element becomes the large one with this img index +1
+		if (thisPastWork !== 3) {
+			portfolioSmallRight.className = 'portfolio-large pastwork' + (thisPastWork + 1);
+			portfolioSmallRight.id = '';
+		} else {
+			portfolioSmallRight.className = 'portfolio-large pastwork' + (thisPastWork - 2);
+			portfolioSmallRight.id = '';
+		}
+
+		cacheAndBind();
+	}, 400);
+}
+
+function rotateRight() {
+	portfolioSmallLeft.removeEventListener('click', rotateLeft);
+	portfolioSmallRight.removeEventListener('click', rotateRight);
+	const that = this;
+	const clsList = this.classList;
+	const thisPastWork = Number(clsList[clsList.length - 1].match(/\d+/)[0]); // get the number of pastwork class of clicked element
+	portfolioLarge.classList.add('small2');
+	portfolioSmallLeft.classList.add('large');
+	portfolioSmallRight.classList.add('gone');
+	setTimeout(function() {
+		// This becomes itself with img index -1
+		if (thisPastWork !== 1) {
+			that.className = 'portfolio-small pastwork' + (thisPastWork - 1);
+		} else {
+			that.className = 'portfolio-small pastwork' + (thisPastWork + 2);
+		}
+		that.id = 'rightmost';
+		// The previous element becomes the leftmost with this img index
+		portfolioLarge.className = 'portfolio-small pastwork' + thisPastWork;
+		portfolioLarge.id = 'leftmost';
+		// The previous previous element becomes the large one with this img index +1
+		if (thisPastWork !== 3) {
+			portfolioSmallLeft.className = 'portfolio-large pastwork' + (thisPastWork + 1);
+			portfolioSmallLeft.id = '';
+		} else {
+			portfolioSmallLeft.className = 'portfolio-large pastwork' + (thisPastWork - 2);
+			portfolioSmallLeft.id = '';
+		}
+
 		cacheAndBind();
 	}, 400);
 }
