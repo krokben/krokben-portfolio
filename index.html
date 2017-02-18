@@ -131,11 +131,32 @@
             </div>
         </div>
         <div class="portfolio">
-            <div id="leftmost" class="portfolio-small pastwork3">1</div>
-            <div class="portfolio-large pastwork2">2</div>
-            <div id="rightmost" class="portfolio-small pastwork1">3</div>
+            <div id='one' class="one">1</div>
+            <div id='two' class="two">2</div>
+            <div id='three' class="three">3</div>
         </div>
         <h3>...these are some of the things I've worked on.</h3>
+        <div class="contact">
+            <div class="contact-form">
+                <form id="contactForm" method="post">
+                    <p class="contact-text-small">got any interesting <span>ideas</span>? drop me a line...</p>
+                    <input id="name" name="name" type="text" placeholder="name" required pattern="[A-Za-z\s]{2,20}" title="Must be between 2 - 20 letters." /><br />
+                    <input id="email" name="email" type="text" placeholder="e-mail" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="Please provide a valid email address." /><br />
+                    <textarea id="message" name="message" placeholder="message" required></textarea><br />
+                    <input id="submitBtn" type="submit" value="submit" />
+                </form>
+            </div>
+            <div class="contact-text">got any interesting <span>ideas</span>? drop me a line and we'll see what we can do...</div>
+        </div>
+        <footer>
+            <ul>
+                <li><a>home</a> /&nbsp;</li>
+                <li><a>about</a> /&nbsp;</li>
+                <li><a>skills</a> /&nbsp;</li>
+                <li><a>portfolio</a> /&nbsp;</li>
+                <li><a>contact</a></li>
+            </ul>
+        </footer>
     </div>
 
     <script src="script.js"></script>

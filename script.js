@@ -71,83 +71,110 @@ function showSkills(bar, area) {
 }
 
 // Portfolio
-let portfolioLarge = document.querySelector('.portfolio-large');
-let portfolioSmallLeft = document.getElementById('leftmost');
-let portfolioSmallRight = document.getElementById('rightmost');
+let portfolio1 = document.querySelector('#one');
+let portfolio2 = document.querySelector('#two');
+let portfolio3 = document.querySelector('#three');
 
 cacheAndBind();
 
 function cacheAndBind() {
-	portfolioLarge = document.querySelector('.portfolio-large');
-	portfolioSmallLeft = document.getElementById('leftmost');
-	portfolioSmallRight = document.getElementById('rightmost');
-	portfolioSmallLeft.addEventListener('click', rotateLeft);
-	portfolioSmallRight.addEventListener('click', rotateRight);
+	portfolio1 = document.querySelector('#one');
+	portfolio2 = document.querySelector('#two');
+	portfolio3 = document.querySelector('#three');
+	portfolio1.addEventListener('click', rotate);
+	portfolio2.addEventListener('click', rotate);
+	portfolio3.addEventListener('click', rotate);
 }
 
-function rotateLeft() {
-	portfolioSmallLeft.removeEventListener('click', rotateLeft);
-	portfolioSmallRight.removeEventListener('click', rotateRight);
-	const that = this;
-	const clsList = this.classList;
-	const thisPastWork = Number(clsList[clsList.length - 1].match(/\d+/)[0]); // get the number of pastwork class of clicked element
-	portfolioLarge.classList.add('small');
-	portfolioSmallLeft.classList.add('gone');
-	portfolioSmallRight.classList.add('large');
-	setTimeout(function() {
-		// This becomes itself with img index -1
-		if (thisPastWork !== 1) {
-			that.className = 'portfolio-small pastwork' + (thisPastWork - 1);
-			that.id = 'leftmost';
-		} else {
-			that.className = 'portfolio-small pastwork' + (thisPastWork + 2);
-			that.id = 'leftmost';
+function rotate() {
+	if (this.className === 'one') {
+		// Rotate left
+		switch(portfolio1.className) {
+			case 'one':
+				portfolio1.classList.add('opacity0');
+				portfolio2.className = 'one';
+				portfolio3.className = 'two';
+				setTimeout(function() {
+					portfolio1.className = 'three';
+				}, 200);
+				break;
+			case 'two':
+				portfolio1.className = 'one';
+				portfolio2.className = 'two';
+				portfolio3.classList.add('opacity0');
+				setTimeout(function() {
+					portfolio3.className = 'three';
+				}, 200);
+				break;
+			case 'three':
+				portfolio1.className = 'two';
+				portfolio2.classList.add('opacity0');
+				portfolio3.className = 'one';
+				setTimeout(function() {
+					portfolio2.className = 'three';
+				}, 200);
+				break;
 		}
-		// The next element becomes the rightmost with this img index
-		portfolioLarge.className = 'portfolio-small pastwork' + thisPastWork;
-		portfolioLarge.id = 'rightmost';
-		// The next next element becomes the large one with this img index +1
-		if (thisPastWork !== 3) {
-			portfolioSmallRight.className = 'portfolio-large pastwork' + (thisPastWork + 1);
-			portfolioSmallRight.id = '';
-		} else {
-			portfolioSmallRight.className = 'portfolio-large pastwork' + (thisPastWork - 2);
-			portfolioSmallRight.id = '';
+	} else if (this.className === 'three') {
+		// Rotate right
+		switch(portfolio1.className) {
+			case 'one':
+				portfolio1.className = 'two';
+				portfolio2.className = 'three';
+				portfolio3.classList.add('opacity0');
+				setTimeout(function() {
+					portfolio3.className = 'one';
+				}, 200);
+				break;
+			case 'two':
+				portfolio1.className = 'three';
+				portfolio2.classList.add('opacity0');
+				portfolio3.className = 'two';
+				setTimeout(function() {
+					portfolio2.className = 'one';
+				}, 200);
+				break;
+			case 'three':
+				portfolio1.classList.add('opacity0');
+				portfolio2.className = 'two'
+				portfolio3.className = 'three';
+				setTimeout(function() {
+					portfolio1.className = 'one';
+				}, 200);
+				break;
 		}
+	}
 
-		cacheAndBind();
-	}, 400);
+	cacheAndBind();
 }
 
-function rotateRight() {
-	portfolioSmallLeft.removeEventListener('click', rotateLeft);
-	portfolioSmallRight.removeEventListener('click', rotateRight);
-	const that = this;
-	const clsList = this.classList;
-	const thisPastWork = Number(clsList[clsList.length - 1].match(/\d+/)[0]); // get the number of pastwork class of clicked element
-	portfolioLarge.classList.add('small2');
-	portfolioSmallLeft.classList.add('large');
-	portfolioSmallRight.classList.add('gone');
-	setTimeout(function() {
-		// This becomes itself with img index -1
-		if (thisPastWork !== 1) {
-			that.className = 'portfolio-small pastwork' + (thisPastWork - 1);
-		} else {
-			that.className = 'portfolio-small pastwork' + (thisPastWork + 2);
-		}
-		that.id = 'rightmost';
-		// The previous element becomes the leftmost with this img index
-		portfolioLarge.className = 'portfolio-small pastwork' + thisPastWork;
-		portfolioLarge.id = 'leftmost';
-		// The previous previous element becomes the large one with this img index +1
-		if (thisPastWork !== 3) {
-			portfolioSmallLeft.className = 'portfolio-large pastwork' + (thisPastWork + 1);
-			portfolioSmallLeft.id = '';
-		} else {
-			portfolioSmallLeft.className = 'portfolio-large pastwork' + (thisPastWork - 2);
-			portfolioSmallLeft.id = '';
-		}
+// Contact form
+const contactForm = document.querySelector('#contactForm');
+const submitBtn = document.querySelector('#submitBtn');
 
-		cacheAndBind();
-	}, 400);
+contactForm.addEventListener('submit', submitForm, false);
+
+function submitForm(evt) {
+	evt.preventDefault();
+
+	const name = document.querySelector('#name').value;
+	const email = document.querySelector('#email').value;
+	const message = document.querySelector('#message').value;
+
+    $.ajax({
+            url: 'api/message.php',
+            type: 'POST',
+            data: {name, email, message},
+            success: function(data) {
+            	if (submitBtn.className === 'error') {
+            		submitBtn.className = '';
+            	}
+                submitBtn.value = data;
+        		submitBtn.disabled = true;
+            },
+            error: function (req, status, err) {
+                submitBtn.value = 'sorry, there was an error';
+                submitBtn.className = 'error';
+            }
+        });
 }
