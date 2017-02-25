@@ -4,24 +4,23 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min portfolio 3</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400i|Roboto+Slab:700|Share+Tech+Mono" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="flickity.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="jquery.scrollintoview.min.js"></script>
+    <script src="flickity.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div id="container" class="pre-active">
         <nav>
-            &#9776;
+            <a id="trigram">&#9776;</a>
         </nav>
-        <main class="face">
+        <main id="home">
             <div>
                 <h1>krokben</h1>
                 <p>front end developer</p>
                 <span class="down-arrow" id="downBtn"></span>
             </div>
         </main>
-        <div id="aboutMe" class="about-me">
+        <div id="about">
             <div class="blurb-container">
                 <div class="circle"></div>
                 <div class="blurb">
@@ -83,60 +82,73 @@
         }</p>
             <div class="keep-scrolling">psst! <span>keep scrolling...</span></div>
         </div>
-        <div class="skills">
-            <h2>my proficiency in...</h2>
-            <div class="skills-container">
-                <div class="row">
-                    <div class="skills-area"><div id="html" class="html">html</div></div>
-                    <div class="skills-area"><div id="css" class="css">css</div></div>
-                    <div class="skills-area"><div id="javascript" class="javascript">javascript</div></div>
-                    <div class="skills-area"><div id="jquery" class="jquery">jquery</div></div>
-                    <div class="skills-area"><div id="php" class="php">php</div></div>
-                </div>
-                <div class="row-big">
-                    <div id="topBars">
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
-                        <span class="html"></span>
+        <div id="skills">
+            <div class="skills-enclosing">
+                <h2>my proficiency in...</h2>
+                <div class="skills-container">
+                    <div class="row">
+                        <div class="skills-area"><div id="html" class="html">html</div></div>
+                        <div class="skills-area"><div id="css" class="css">css</div></div>
+                        <div class="skills-area"><div id="javascript" class="javascript">javascript</div></div>
+                        <div class="skills-area"><div id="jquery" class="jquery">jquery</div></div>
+                        <div class="skills-area"><div id="php" class="php">php</div></div>
                     </div>
-                </div>
-                <div class="row-big-bottom">
-                    <div id="bottomBars">
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
-                        <span class="scrum"></span>
+                    <div class="row-big">
+                        <div id="topBars">
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                            <span class="html"></span>
+                        </div>
                     </div>
-                </div>
-                <div class="row-bottom">
-                    <div class="skills-area"><div id="react" class="react">react.js</div></div>
-                    <div class="skills-area"><div id="bootstrap" class="bootstrap">bootstrap</div></div>
-                    <div class="skills-area"><div id="wordpress" class="wordpress">wordpress</div></div>
-                    <div class="skills-area"><div id="sass" class="sass">sass</div></div>
-                    <div class="skills-area"><div id="scrum" class="scrum">scrum</div></div>
+                    <div class="row-big-bottom">
+                        <div id="bottomBars">
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                            <span class="scrum"></span>
+                        </div>
+                    </div>
+                    <div class="row-bottom">
+                        <div class="skills-area"><div id="react" class="react">react.js</div></div>
+                        <div class="skills-area"><div id="bootstrap" class="bootstrap">bootstrap</div></div>
+                        <div class="skills-area"><div id="wordpress" class="wordpress">wordpress</div></div>
+                        <div class="skills-area"><div id="sass" class="sass">sass</div></div>
+                        <div class="skills-area"><div id="scrum" class="scrum">scrum</div></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio">
-            <div id='one' class="one">1</div>
-            <div id='two' class="two">2</div>
-            <div id='three' class="three">3</div>
+
+        <div id="portfolio">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-cell"><h2>portfolio</h2></div>
+                    <div class="carousel-cell tile"></div>
+                    <div class="carousel-cell memory"></div>
+                    <div class="carousel-cell geten"></div>
+                    <div class="carousel-cell hangman"></div>
+                </div>
+            </div>
+            <div id="portfolioInfo" class="info">
+                <h3>past work</h3>
+                <p>Here are some of the things I've worked on in the past. Click on one to open it in a new tab.</p>
+            </div>
         </div>
-        <h3>...these are some of the things I've worked on.</h3>
-        <div class="contact">
+
+        <div id="contact">
             <div class="contact-form">
                 <form id="contactForm" method="post">
                     <p class="contact-text-small">got any interesting <span>ideas</span>? drop me a line...</p>
@@ -150,15 +162,26 @@
         </div>
         <footer>
             <ul>
-                <li><a>home</a> /&nbsp;</li>
-                <li><a>about</a> /&nbsp;</li>
-                <li><a>skills</a> /&nbsp;</li>
-                <li><a>portfolio</a> /&nbsp;</li>
-                <li><a>contact</a></li>
+                <li><a class="home">home</a> /&nbsp;</li>
+                <li><a class="about">about</a> /&nbsp;</li>
+                <li><a class="skills">skills</a> /&nbsp;</li>
+                <li><a class="portfolio">portfolio</a> /&nbsp;</li>
+                <li><a class="contact">contact</a></li>
             </ul>
         </footer>
     </div>
 
+    <div id="sidenav">
+        <a class="trigram">&#9776;</a>
+        <ul>
+            <li><a class="home">home</a></li>
+            <li><a class="about">about</a></li>
+            <li><a class="skills">skills</a></li>
+            <li><a class="portfolio">portfolio</a></li>
+            <li><a class="contact">contact</a></li>
+        </ul>
+    </div>
+    <script src="smoothscroll.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
