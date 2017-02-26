@@ -136,7 +136,7 @@ http://flickity.metafizzy.co
 }
 
 .carousel-cell {
-  background-image: url('images/portfolio.png');
+  background-image: url('../images/portfolio.png');
   background-size: 120%;
   color: #fff;
   display: flex;
@@ -161,21 +161,21 @@ http://flickity.metafizzy.co
 }
 
 .carousel-cell.tile {
-  background-image: url('images/tilegame.png');
+  background-image: url('../images/tilegame.png');
   background-size: 120%;
 }
 
 .carousel-cell.memory {
-  background-image: url('images/memorygame.png');
+  background-image: url('../images/memorygame.png');
   background-size: 120%;
 }
 
 .carousel-cell.geten {
-  background-image: url('images/gladageten.png');
+  background-image: url('../images/gladageten.png');
   background-size: 120%;
 }
 
 .carousel-cell.hangman {
-  background-image: url('images/hangman.png');
+  background-image: url('../images/hangman.png');
   background-size: 120%;
 }
