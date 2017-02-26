@@ -210,3 +210,44 @@ function submitForm(evt) {
             }
         });
 }
+
+/* Landing elements */
+const flyInLeft = document.querySelectorAll('.fly-in-left');
+const flyInRight = document.querySelectorAll('.fly-in-right');
+const fadeIn = document.querySelectorAll('.fade-in');
+const fadeIn2 = document.querySelectorAll('.fade-in2');
+
+window.onscroll = function() {
+  // Don't run the rest of the code if every section is already visible
+  if (
+  	document.querySelectorAll('.fly-in-left:not(.visible)').length === 0 &&
+  	document.querySelectorAll('.fly-in-right:not(.visible)').length === 0 &&
+  	document.querySelectorAll('.fade-in:not(.visible)').length === 0 &&
+  	document.querySelectorAll('.fade-in2:not(.visible)').length === 0
+  ) return;
+  
+  // Run this code for every section in sections
+  for (const section of flyInLeft) {
+    if (section.getBoundingClientRect().top <= window.innerHeight * 1 && section.getBoundingClientRect().top > 0) {
+      section.classList.add('visible');
+    }
+  }
+
+  for (const section of flyInRight) {
+    if (section.getBoundingClientRect().top <= window.innerHeight * 1 && section.getBoundingClientRect().top > 0) {
+      section.classList.add('visible');
+    }
+  }
+
+  for (const section of fadeIn) {
+    if (section.getBoundingClientRect().top <= window.innerHeight * 1 && section.getBoundingClientRect().top > 0) {
+      section.classList.add('visible');
+    }
+  }
+
+  for (const section of fadeIn2) {
+    if (section.getBoundingClientRect().top <= window.innerHeight * 1 && section.getBoundingClientRect().top > 0) {
+      section.classList.add('visible');
+    }
+  }
+};

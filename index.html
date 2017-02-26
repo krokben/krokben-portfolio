@@ -24,8 +24,8 @@
             <div class="blurb-container">
                 <div class="circle"></div>
                 <div class="blurb">
-                    <h2>tommy svensson</h2>
-                    <p>Knackar kod och kommer med kreativa lösningar. Gillar fin och strukturerad kod, ny teknik och
+                    <h2 class="fade-in">tommy svensson</h2>
+                    <p class="fade-in2">Knackar kod och kommer med kreativa lösningar. Gillar fin och strukturerad kod, ny teknik och
                     minimalistisk design. Har spenderat några år i Berlin och Tokyo. Studerar frontend på KYH i Stockholm.</p>
                     <hr />
                 </div>
@@ -80,20 +80,20 @@
             this.images.innerHTML = '';
             this.resetButton.style.display = 'none';
         }</p>
-            <div class="keep-scrolling">psst! <span>keep scrolling...</span></div>
+            <div class="keep-scrolling fade-in2">psst! <span>keep scrolling...</span></div>
         </div>
         <div id="skills">
             <div class="skills-enclosing">
-                <h2>my proficiency in...</h2>
+                <h2 class="fade-in">my proficiency in...</h2>
                 <div class="skills-container">
-                    <div class="row">
+                    <div class="row fly-in-right">
                         <div class="skills-area"><div id="html" class="html">html</div></div>
                         <div class="skills-area"><div id="css" class="css">css</div></div>
                         <div class="skills-area"><div id="javascript" class="javascript">javascript</div></div>
                         <div class="skills-area"><div id="jquery" class="jquery">jquery</div></div>
                         <div class="skills-area"><div id="php" class="php">php</div></div>
                     </div>
-                    <div class="row-big">
+                    <div class="row-big fly-in-left">
                         <div id="topBars">
                             <span class="html"></span>
                             <span class="html"></span>
@@ -107,7 +107,7 @@
                             <span class="html"></span>
                         </div>
                     </div>
-                    <div class="row-big-bottom">
+                    <div class="row-big-bottom fly-in-right">
                         <div id="bottomBars">
                             <span class="scrum"></span>
                             <span class="scrum"></span>
@@ -121,7 +121,7 @@
                             <span class="scrum"></span>
                         </div>
                     </div>
-                    <div class="row-bottom">
+                    <div class="row-bottom fly-in-left">
                         <div class="skills-area"><div id="react" class="react">react.js</div></div>
                         <div class="skills-area"><div id="bootstrap" class="bootstrap">bootstrap</div></div>
                         <div class="skills-area"><div id="wordpress" class="wordpress">wordpress</div></div>
@@ -151,14 +151,14 @@
         <div id="contact">
             <div class="contact-form">
                 <form id="contactForm" method="post">
-                    <p class="contact-text-small">got any interesting <span>ideas</span>? drop me a line...</p>
+                    <p class="contact-text-small fly-in-right">got any interesting <span>ideas</span>? drop me a line...</p>
                     <input id="name" name="name" type="text" placeholder="name" required pattern="[A-Za-z\s]{2,20}" title="Must be between 2 - 20 letters." /><br />
                     <input id="email" name="email" type="text" placeholder="e-mail" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="Please provide a valid email address." /><br />
                     <textarea id="message" name="message" placeholder="message" required></textarea><br />
                     <input id="submitBtn" type="submit" value="submit" />
                 </form>
             </div>
-            <div class="contact-text">got any interesting <span>ideas</span>? drop me a line and we'll see what we can do...</div>
+            <div class="contact-text fly-in-right">got any interesting <span>ideas</span>? drop me a line and we'll see what we can do...</div>
         </div>
         <footer>
             <ul>

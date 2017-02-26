@@ -479,6 +479,34 @@ footer ul li a:hover {
     color: #fff;
 }
 
+/* Landing elements */
+
+.fade-in {
+    transition: 1.5s ease-in-out;
+    opacity: 0;
+}
+
+.fade-in2 {
+    transition: 2.5s ease-in-out;
+    opacity: 0;
+}
+
+.fly-in-left {
+    transition: 1s ease-in-out;
+    transform: translate(-600px, 0);
+}
+
+.fly-in-right {
+    transition: 1s ease-in-out;
+    transform: translate(600px, 0);
+}
+
+.visible {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+/* Media queries */
+
 @media screen and (min-width: 480px) {
     #portfolio .carousel-container {width: 430px;}
 }
