@@ -1,57 +1,3 @@
-const Portfolio = (function() {
-	const portfolioInfo = document.querySelector('#portfolioInfo');
-	const portfolioText = {
-		init: `
-			<h3>past work</h3>
-	        <p>Here are some of the things I've worked on in the past. Click on one to open it in a new tab.</p>
-		`,
-		tile: `
-	    	<h3><a href="http://krokben.se" target="_blank">tile game</a></h3>
-	        <p>A simple little game I made where you click tiles until they form 3 vertical lines.</p>
-	    `,
-	    memory: `
-	    	<h3><a href="http://krokben.se" target="_blank">memory game</a></h3>
-	        <p>A simple memory game made with vanilla js. Focus is on good, intuitive design.</p>
-	    `,
-		geten: `
-			<h3><a href="http://krokben.se" target="_blank">den glada geten</a></h3>
-	        <p>A team project at KYH. Together we made a website for a fictional bed & breakfast.</p>
-	    `,
-	    hangman: `
-			<h3><a href="http://krokben.se" target="_blank">hangman</a></h3>
-	        <p>A silly litte Hangman game with rudimentary pictures drawn in Paint.</p>
-	    `
-	}
-
-	const flkty = new Flickity( '.carousel', {
-		// options
-		cellAlign: 'left',
-		contain: true,
-		freeScroll: true,
-		wrapAround: true,
-		pageDots: false
-	});
-
-	flkty.on('select', function() {
-		switch(flkty.selectedIndex) {
-			case 1:
-				portfolioInfo.innerHTML = portfolioText.tile;
-				break;
-			case 2:
-				portfolioInfo.innerHTML = portfolioText.memory;
-				break;
-			case 3:
-				portfolioInfo.innerHTML = portfolioText.geten;
-				break;
-			case 4:
-				portfolioInfo.innerHTML = portfolioText.hangman;
-				break;
-			default:
-				portfolioInfo.innerHTML = portfolioText.init;
-		}
-	});
-})();
-
 const Sidenav = (function() {
 	// Cache DOM
 	const body = document.querySelector('body');
@@ -151,7 +97,7 @@ const Skills = (function() {
 		let bar;
 		const area = item.children[0].id;
 
-		if (item.parentElement.className === 'row') {
+		if (item.parentElement.classList.contains('row')) {
 			bar = topBars;
 		} else {
 			bar = bottomBars;
@@ -187,6 +133,60 @@ const Skills = (function() {
 	}
 })();
 
+const Portfolio = (function() {
+	const portfolioInfo = document.querySelector('#portfolioInfo');
+	const portfolioText = {
+		init: `
+			<h3>past work</h3>
+	        <p>Here are some of the things I've worked on in the past. Click on one to open it in a new tab.</p>
+		`,
+		tile: `
+	    	<h3><a href="http://krokben.se/tilegame" target="_blank">tile game</a></h3>
+	        <p>A simple little game I made where you click tiles until they form 3 vertical lines.</p>
+	    `,
+	    memory: `
+	    	<h3><a href="http://krokben.se/memory" target="_blank">memory game</a></h3>
+	        <p>A simple memory game made with vanilla js. Focus is on good, intuitive design.</p>
+	    `,
+		geten: `
+			<h3><a href="http://geten.krokben.se" target="_blank">den glada geten</a></h3>
+	        <p>A team project at KYH. Together we made a website for a fictional bed & breakfast.</p>
+	    `,
+	    hangman: `
+			<h3><a href="http://krokben.se/hangman" target="_blank">hangman</a></h3>
+	        <p>A silly litte Hangman game with rudimentary pictures drawn in Paint.</p>
+	    `
+	}
+
+	const flkty = new Flickity( '.carousel', {
+		// options
+		cellAlign: 'left',
+		contain: true,
+		freeScroll: true,
+		wrapAround: true,
+		pageDots: false
+	});
+
+	flkty.on('select', function() {
+		switch(flkty.selectedIndex) {
+			case 1:
+				portfolioInfo.innerHTML = portfolioText.tile;
+				break;
+			case 2:
+				portfolioInfo.innerHTML = portfolioText.memory;
+				break;
+			case 3:
+				portfolioInfo.innerHTML = portfolioText.geten;
+				break;
+			case 4:
+				portfolioInfo.innerHTML = portfolioText.hangman;
+				break;
+			default:
+				portfolioInfo.innerHTML = portfolioText.init;
+		}
+	});
+})();
+
 const ContactForm = (function() {
 	const contactForm = document.querySelector('#contactForm');
 	const submitBtn = document.querySelector('#submitBtn');
@@ -199,23 +199,26 @@ const ContactForm = (function() {
 		const name = document.querySelector('#name').value;
 		const email = document.querySelector('#email').value;
 		const message = document.querySelector('#message').value;
+     	const data = JSON.stringify({name: name, email: email, message: message});
 
-	    $.ajax({
-            url: 'api/message.php',
-            type: 'POST',
-            data: {name, email, message},
-            success: function(data) {
-            	if (submitBtn.className === 'error') {
+        const request = new XMLHttpRequest();
+		request.open('POST', 'api/message.php', true);
+		request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		request.responseType = 'text';
+		request.onload = function() {
+			if (this.status >= 200 && this.status < 400) {
+				if (submitBtn.className === 'error') {
             		submitBtn.className = '';
-            	}
-                submitBtn.value = data;
+        		}
+            	submitBtn.value = this.response;
         		submitBtn.disabled = true;
-            },
-            error: function (req, status, err) {
-                submitBtn.value = 'sorry, there was an error';
+			} else {
+		    	submitBtn.value = 'sorry, there was an error';
                 submitBtn.className = 'error';
-            }
-        });
+
+		  }
+		};
+		request.send("data="+data);
 	}
 })();
 

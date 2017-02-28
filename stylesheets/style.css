@@ -1,12 +1,11 @@
 body {
     background: #2ecc71;
-    /*color: #13562f;*/
     color: #000;
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
     height: 100%;
     margin: 0;
-    /*overflow: hidden;*/
+    overflow-x: hidden;
 }
 
 h1 {
@@ -33,6 +32,8 @@ h3 {
 #sidenav {
     background: #000;
     color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-size: 4em;
     height: 100%;
@@ -40,13 +41,16 @@ h3 {
     right: 0;
     text-align: center;
     top: 0;
+    -webkit-transition: 1s;
     transition: 1s;
     width: 0;
     z-index: 3;
 }
 
 #sidenav ul {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     list-style-type: none;
     margin: 0 auto;
 }
@@ -64,15 +68,21 @@ h3 {
 }
 
 #sidenav.inactive {
-    animation: inactive 1s;
+    -webkit-animation: inactive 1s;
+            animation: inactive 1s;
 }
 
 /*--------------------------------------*\
     Container
 \*--------------------------------------*/
 
+#container {
+    overflow-x: hidden;
+}
+
 #container.pre-active {
     opacity: 1;
+    -webkit-transition: margin 3.3s, opacity 1s;
     transition: margin 3.3s, opacity 1s;
 }
 
@@ -82,6 +92,7 @@ h3 {
 }
 
 #container.inactive {
+    -webkit-transition: none;
     transition: none;
 }
 
@@ -102,7 +113,9 @@ nav {
 
 #trigram, .trigram {
     cursor: pointer;
+    font-weight: bold;
     opacity: 1;
+    -webkit-transition: all 2s;
     transition: all 2s;
 }
 
@@ -124,6 +137,7 @@ nav {
 .trigram#show {
     opacity: 1;
     right: 15px;
+    -webkit-transition: all 1s;
     transition: all 1s;
 }
 
@@ -132,11 +146,17 @@ nav {
 \*--------------------------------------*/
 
 #home {
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 77vh;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
     text-align: center;
 }
@@ -151,10 +171,12 @@ nav {
 }
 
 .down-arrow {
-    animation: down-arrow-move 2.5s ease 0s infinite;
+    -webkit-animation: down-arrow-move 2.5s ease 0s infinite;
+            animation: down-arrow-move 2.5s ease 0s infinite;
     background: #27ae60;
     bottom: 2px;
-    clip-path: polygon(20% 0%, 20% 60%, 0% 60%, 50% 100%, 100% 60%, 80% 60%, 80% 0%);
+    -webkit-clip-path: polygon(20% 0%, 20% 60%, 0% 60%, 50% 100%, 100% 60%, 80% 60%, 80% 0%);
+            clip-path: polygon(20% 0%, 20% 60%, 0% 60%, 50% 100%, 100% 60%, 80% 60%, 80% 0%);
     cursor: pointer;
     height: 50px;
     position: absolute;
@@ -176,8 +198,12 @@ nav {
 }
 
 .blurb-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 2;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
     left: 8vw;
     max-width: 80%;
     position: absolute;
@@ -191,7 +217,7 @@ nav {
     background-image: url('../images/me.jpg');
     background-position: 7% 0% !important;
     background-repeat: no-repeat;
-    background-size: 30%;
+    background-size: 100%;
     border: 2px solid #fff;
     border-radius: 50%;
     height: 20vw;
@@ -202,11 +228,14 @@ nav {
     color: #2ecc71;
     font-size: 1.1vw;
     max-width: 66%;
-    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
 }
 
 .blurb {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     box-sizing: border-box;
     padding-left: 5px;
 }
@@ -248,10 +277,17 @@ nav {
 
 .skills-enclosing {
     background: #27ae60;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 52vw;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
 }
 
@@ -261,12 +297,18 @@ nav {
     left: 1em;
     position: absolute;
     top: 2em;
-    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
 }
 
 .skills-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-family: 'Share Tech Mono';
     height: 40vw;
     margin: 0 auto;
@@ -274,19 +316,27 @@ nav {
 }
 
 .skills-container .row, .skills-container .row-bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 
 .skills-container .row .skills-area {
     box-sizing: border-box;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     padding: 0 1vw 0 1vw;
 }
 
 .skills-container .row-bottom .skills-area {
     box-sizing: border-box;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     padding: 0 1vw 0 1vw;
 }
 
@@ -294,12 +344,20 @@ nav {
     box-shadow: 0px 1px 2px 0px rgba(24,112,61,0.75);
     color: #fff;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-size: 2vw;
     height: 100%;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
+    -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
     width: 100%;
 }
@@ -307,28 +365,43 @@ nav {
 .skills-container .row .skills-area div:hover, .skills-container .row-bottom .skills-area div:hover {
     box-shadow: 0px 3px 2px 0px rgba(24,112,61,0.75);
     color: #000;
-    transform: translate(0em, -0.2em);
+    -webkit-transform: translate(0em, -0.2em);
+            transform: translate(0em, -0.2em);
 }
 
 .skills-container .row-big {
     box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 4;
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
     padding: 2vw 0 0px 0;
 }
 
 .skills-container .row-big-bottom {
     box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 4;
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
     padding: 1vw 0 2vw 0;
 }
 
 .skills-container .row-big div, .skills-container .row-big-bottom div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     height: 100%;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .skills-container .row-big span, .skills-container .row-big-bottom span {
@@ -337,16 +410,16 @@ nav {
     width: 9.8%;
 }
 
-.html {background: #f1c40f;         transition: all 400ms ease-in-out;}
-.css {background: #9b59b6;          transition: all 400ms ease-in-out;}
-.javascript {background: #f62459;   transition: all 400ms ease-in-out;}
-.jquery {background: #19B5fe;       transition: all 400ms ease-in-out;}
-.php {background: #2C3e50;          transition: all 400ms ease-in-out;}
-.react {background: #f22613;        transition: all 400ms ease-in-out;}
-.bootstrap {background: #87D37C;    transition: all 400ms ease-in-out;}
-.wordpress {background: #446cb3;    transition: all 400ms ease-in-out;}
-.sass {background: #f89406;         transition: all 400ms ease-in-out;}
-.scrum {background: #D2D7D3;        transition: all 400ms ease-in-out;}
+.html {background: #f1c40f;         -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.css {background: #9b59b6;          -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.javascript {background: #f62459;   -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.jquery {background: #19B5fe;       -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.php {background: #2C3e50;          -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.react {background: #f22613;        -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.bootstrap {background: #87D37C;    -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.wordpress {background: #446cb3;    -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.sass {background: #f89406;         -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
+.scrum {background: #D2D7D3;        -webkit-transition: all 400ms ease-in-out;  transition: all 400ms ease-in-out;}
 
 /*--------------------------------------*\
     Portfolio
@@ -366,11 +439,13 @@ nav {
 }
 
 #portfolio p {
+    font-size: 0.8em;
     margin: 0;
 }
 
 #portfolio .info {
     margin: auto;
+    max-width: 330px;
     padding: 15px 0 0 0;
     width: 400px;
 }
@@ -388,14 +463,22 @@ nav {
 
 #contact {
     box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 2% 0 0 1%;
 }
 
 .contact-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 1;
-    justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 1%;
 }
 
@@ -447,7 +530,9 @@ nav {
 
 .contact-text {
     display: none;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     font-size: 5vw;
 }
 
@@ -471,16 +556,22 @@ nav {
 footer {
     background: #27ae60;
     color: #92e086;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-size: 2em;
     height: 230px;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-top: 20px;
     padding: 15px;
 }
 
 footer ul {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     list-style-type: none;
     margin: 0;
 }
@@ -502,27 +593,34 @@ footer ul li a:hover {
 \*--------------------------------------*/
 
 .fade-in {
+    -webkit-transition: 1.5s ease-in-out;
     transition: 1.5s ease-in-out;
     opacity: 0;
 }
 
 .fade-in2 {
+    -webkit-transition: 2.5s ease-in-out;
     transition: 2.5s ease-in-out;
     opacity: 0;
 }
 
 .fly-in-left {
+    -webkit-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
-    transform: translate(-600px, 0);
+    -webkit-transform: translate(-600px, 0);
+            transform: translate(-600px, 0);
 }
 
 .fly-in-right {
+    -webkit-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
-    transform: translate(600px, 0);
+    -webkit-transform: translate(600px, 0);
+            transform: translate(600px, 0);
 }
 
 .visible {
-    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
     opacity: 1;
 }
 
@@ -538,10 +636,14 @@ footer ul li a:hover {
     #sidenav {font-size: 6em;}
     .trigram#show {right: 30px;}
     #about {
-        clip-path: polygon(0% 100%, 0% 0%, 90% 0%, 90% 50%, 84% 70%, 84% 100%,
+        -webkit-clip-path: polygon(0% 100%, 0% 0%, 90% 0%, 90% 50%, 84% 70%, 84% 100%,
+            85% 100%, 85% 70.5%, 91% 50.5%, 91% 0%, 100% 0%, 100% 100%, 0% 100%);
+                clip-path: polygon(0% 100%, 0% 0%, 90% 0%, 90% 50%, 84% 70%, 84% 100%,
             85% 100%, 85% 70.5%, 91% 50.5%, 91% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+    .circle {background-size: 30%;}
     .keep-scrolling {right: 18vw;}
+    #portfolio .info {font-size: 1.2em; max-width: 440px;}
     #contact form {width: auto;}
     #contact form input, .contact form textarea {width: 456px;}
     footer {font-size: 4.5vw;}
@@ -561,7 +663,9 @@ footer ul li a:hover {
 
 @media screen and (min-width: 1030px) {
     #about {
-        clip-path: polygon(0% 0%, 63% 0%, 63% 30%, 69% 50%, 69% 100%, 70% 100%,
+        -webkit-clip-path: polygon(0% 0%, 63% 0%, 63% 30%, 69% 50%, 69% 100%, 70% 100%,
+        70% 49.5%, 64% 29.5%, 64% 0%, 100% 0%, 100% 100%, 0% 100%);
+                clip-path: polygon(0% 0%, 63% 0%, 63% 30%, 69% 50%, 69% 100%, 70% 100%,
         70% 49.5%, 64% 29.5%, 64% 0%, 100% 0%, 100% 100%, 0% 100%);
         height: 100vh;
     }
@@ -572,16 +676,34 @@ footer ul li a:hover {
     footer {font-size: 3em;}
 }
 
+@-webkit-keyframes down-arrow-move {
+    0%   {bottom: 2px;}
+    50% {bottom: 18px;}
+    100% {bottom: 2px;}
+}
+
 @keyframes down-arrow-move {
     0%   {bottom: 2px;}
     50% {bottom: 18px;}
     100% {bottom: 2px;}
 }
 
+@-webkit-keyframes up-arrow-move {
+    0%   {bottom: 6px;}
+    50% {bottom: 22px;}
+    100% {bottom: 6px;}
+}
+
 @keyframes up-arrow-move {
     0%   {bottom: 6px;}
     50% {bottom: 22px;}
     100% {bottom: 6px;}
+}
+
+@-webkit-keyframes inactive {
+    0% {opacity: 1; width: 100vw;}
+    99% {opacity: 0; width: 100vw;}
+    100% {opacity: 0; width: 0;}
 }
 
 @keyframes inactive {

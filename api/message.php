@@ -1,13 +1,15 @@
 <?php
 
-$db = mysqli_connect('krokben-219508.mysql.binero.se', '219508_aq20643','crookbone' , '219508-krokben');
-// $db = mysqli_connect('localhost', 'root','' , 'krokben');
+require_once('db.php');
 
-$name = mysqli_real_escape_string($db, $_POST['name']);
-$email = mysqli_real_escape_string($db, $_POST['email']);
-$message = mysqli_real_escape_string($db, $_POST['message']);
+$data = $_POST['data'];
+$obj=json_decode($data);
 
-if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+$name = mysqli_real_escape_string($db, $obj->name);
+$email = mysqli_real_escape_string($db, $obj->email);
+$message = mysqli_real_escape_string($db, $obj->message);
+
+if($data) {
 	mail("svensson.tommy@student.kyh.se", "Mail till krokben.se från " . $name, $message . " (Sent from $email)");
 	echo "thank you!";
 }
