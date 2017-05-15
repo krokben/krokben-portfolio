@@ -110,17 +110,17 @@ const Skills = (function() {
 		const array = Array.from(bar.children);
 
 		switch(area) {
-			case 'html':		i = 10; break;
-			case 'css':			i = 8; 	break;
+			case 'html': 				i = 10; break;
+			case 'css':					i = 8; 	break;
 			case 'javascript': 	i = 7; 	break;
-			case 'jquery':		i = 7; 	break;
-			case 'php': 		i = 4; 	break;
-			case 'react': 		i = 5; 	break;
+			case 'jquery':			i = 7; 	break;
+			case 'php': 				i = 4; 	break;
+			case 'react': 			i = 6; 	break;
 			case 'bootstrap': 	i = 7; 	break;
-			case 'wordpress': 	i = 1; 	break;
-			case 'sass': 		i = 1; 	break;
-			case 'scrum': 		i = 10; break;
-			default: 			i = 10;
+			case 'wordpress': 	i = 7; 	break;
+			case 'sass': 				i = 6; 	break;
+			case 'scrum': 			i = 10; break;
+			default: 						i = 10;
 		}
 
 		array.forEach((child, idx) => {
